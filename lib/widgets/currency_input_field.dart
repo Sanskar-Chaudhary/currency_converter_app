@@ -13,6 +13,7 @@ class CurrencyInputField extends StatelessWidget {
       decoration: InputDecoration(
         labelText: label,
         border: OutlineInputBorder(),
+        filled: true,
       ),
       onChanged: onChanged,
     );

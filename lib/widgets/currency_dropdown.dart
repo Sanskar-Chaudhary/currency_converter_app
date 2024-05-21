@@ -15,9 +15,28 @@ class CurrencyDropdown extends StatelessWidget {
       items: currencies.map<DropdownMenuItem<String>>((String value) {
         return DropdownMenuItem<String>(
           value: value,
-          child: Text(value),
+          child: Row(
+            children: [
+              _getCurrencyIcon(value),
+              SizedBox(width: 8),
+              Text(value, style: Theme.of(context).textTheme.bodyLarge),
+            ],
+          ),
         );
       }).toList(),
     );
+  }
+
+  Widget _getCurrencyIcon(String currency) {
+    switch (currency) {
+      case 'EUR':
+        return Icon(Icons.euro, color: Colors.blue);
+      case 'USD':
+        return Icon(Icons.attach_money, color: Colors.green);
+      case 'INR':
+        return Icon(Icons.currency_rupee, color: Colors.deepOrange);
+      default:
+        return Icon(Icons.money, color: Colors.grey);
+    }
   }
 }
